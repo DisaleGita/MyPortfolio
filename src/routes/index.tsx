@@ -18,9 +18,27 @@ import {
 } from "lucide-react";
 import portrait from "../assets/gita-disale-portrait.png";
 
+const SITE_URL = "https://www.gitadisale.com";
+
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
     meta: [
+      {
+        "script:ld+json": {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Gita Disale",
+          url: `${SITE_URL}/`,
+          image: `${SITE_URL}${portrait}`,
+          jobTitle: "Senior Software Engineer",
+          address: { "@type": "PostalAddress", addressLocality: "Chicago", addressRegion: "IL", addressCountry: "US" },
+          sameAs: ["https://linkedin.com/in/gita-disale/", "https://github.com/DisaleGita"],
+        },
+      },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:image", content: `${SITE_URL}${portrait}` },
+      { name: "twitter:image", content: `${SITE_URL}${portrait}` },
       { title: "Gita Disale | Senior Software Engineer" },
       {
         name: "description",
