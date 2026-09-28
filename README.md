@@ -1,4 +1,4 @@
-# Gita Disale — Portfolio
+# Gita Disale - Portfolio
 
 Personal portfolio site for Gita Disale, Senior Software Engineer: career timeline, case studies, technical expertise, applied AI, education, certifications, and contact.
 
