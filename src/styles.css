@@ -170,6 +170,7 @@ h1 em, h2 em { color: var(--coral); font-style: italic; font-weight: 500; }
 .certifications h3 { color: var(--coral); }
 .certifications p { display: flex; justify-content: space-between; gap: 20px; padding-block: 7px; color: var(--secondary-foreground); border-bottom: 1px solid var(--line); font-size: 12px; }
 .certifications p span { color: oklch(0.7 0.01 70); }
+.certifications p a { color: inherit; }
 .philosophy-grid { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 50px; border-block: 1px solid var(--line); }
 .philosophy-grid article { min-height: 210px; padding: 26px; border-right: 1px solid var(--line); }
 .philosophy-grid article:last-child { border: 0; }
