@@ -33,7 +33,26 @@ export const Route = createFileRoute("/")({
           image: `${SITE_URL}${portrait}`,
           jobTitle: "Senior Software Engineer",
           address: { "@type": "PostalAddress", addressLocality: "Chicago", addressRegion: "IL", addressCountry: "US" },
-          sameAs: ["https://linkedin.com/in/gita-disale/", "https://github.com/DisaleGita"],
+          sameAs: [
+            "https://linkedin.com/in/gita-disale/",
+            "https://github.com/DisaleGita",
+            "https://x.com/DisaleGita",
+            "https://www.instagram.com/gita.disale",
+          ],
+          alumniOf: [
+            { "@type": "CollegeOrUniversity", name: "Illinois Institute of Technology", url: "https://www.iit.edu/" },
+            { "@type": "CollegeOrUniversity", name: "Pune Institute of Computer Technology", url: "https://pict.edu/" },
+          ],
+          memberOf: {
+            "@type": "OrganizationRole",
+            roleName: "President",
+            startDate: "2022",
+            memberOf: {
+              "@type": "Organization",
+              name: "Indian Students Association, Illinois Institute of Technology",
+              sameAs: "https://www.instagram.com/isa_illinoistech/",
+            },
+          },
         },
       },
       { property: "og:url", content: `${SITE_URL}/` },
@@ -358,6 +377,10 @@ function Portfolio() {
           <article><span>2023</span><div><h3>Illinois Institute of Technology</h3><p>Master of Science in Information Technology and Management · Chicago, IL</p><p className="gpa">GPA: 4.0 / 4.0</p></div><Award/></article>
           <article><span>2015</span><div><h3>Pune Institute of Computer Technology</h3><p>Bachelor of Engineering in Information Technology · Pune, India</p><p className="gpa">GPA: 3.6 / 4.0</p></div><Award/></article>
           <div className="certifications">
+            <h3>Leadership</h3>
+            <p><a href="https://www.instagram.com/isa_illinoistech/" target="_blank" rel="noreferrer">President, Indian Students Association · Illinois Institute of Technology</a> <span>2022</span></p>
+          </div>
+          <div className="certifications">
             <h3>Certifications</h3>
             <p>AI Builder Accelerator <span>2026</span></p><p>Certified Scrum Product Owner <span>2022</span></p><p>Certified ScrumMaster <span>2022</span></p><p>Foundations of Project Management <span>2022</span></p><p>Agile with Atlassian Jira <span>2022</span></p>
           </div>
@@ -378,7 +401,7 @@ function Portfolio() {
           <SectionLabel>Let&apos;s work together</SectionLabel>
           <h2>Let&apos;s build something<br/><em>meaningful.</em></h2>
           <p>I&apos;m interested in challenging engineering problems involving scalable software, cloud platforms, distributed systems, data engineering, and applied AI.</p>
-          <div className="footer-actions"><a className="pill pill-coral" href="mailto:disale.gita@gmail.com"><Mail size={18}/> Email me</a><a className="pill pill-outline-dark" href="https://linkedin.com/in/gita-disale/" target="_blank" rel="noreferrer"><Linkedin size={18}/> LinkedIn</a></div>
+          <div className="footer-actions"><a className="pill pill-coral" href="mailto:disale.gita@gmail.com"><Mail size={18}/> Email me</a><a className="pill pill-outline-dark" href="https://linkedin.com/in/gita-disale/" target="_blank" rel="noreferrer"><Linkedin size={18}/> LinkedIn</a><a className="pill pill-outline-dark" href="https://x.com/DisaleGita" target="_blank" rel="noreferrer">X / Twitter</a></div>
           <div className="footer-meta"><BrandMark/><span><MapPin size={15}/> Chicago, IL</span><span>© 2026 Gita Disale</span></div>
         </div>
       </footer>
