@@ -17,6 +17,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import portrait from "../assets/gita-disale-portrait.png";
+import returnDoneLanding from "../assets/return-done-landing.png";
 
 const SITE_URL = "https://www.gitadisale.com";
 
@@ -144,6 +145,38 @@ const projects = [
       "Modernized fragmented market data into standardized access patterns with dynamic curve creation, stronger discoverability, and simpler maintenance.",
     impact: "200+ production onboardings",
     flow: ["Data sources", "Standardization", "Quality controls", "Consumers"],
+  },
+  {
+    number: "04",
+    domain: "STARTUP / RETURNS LOGISTICS",
+    title: "Return Done",
+    description:
+      "Co-founded a doorstep returns startup in Chicago in 2023 and built it as CTO, testing it with real student customers. Rebuilt in 2026 with Next.js and an AI return assistant; the live site is a working product demo with simulated pickups and payments.",
+    impact: "Co-Founder & CTO · Founded 2023, rebuilt 2026",
+    flow: [
+      "Schedule pickup",
+      "Doorstep collection",
+      "Pack & return",
+      "Refund tracking",
+    ],
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Product",
+      "Startup",
+      "Full-stack",
+      "AI",
+      "Logistics",
+    ],
+    links: {
+      live: "https://return-done.vercel.app",
+      source: "https://github.com/DisaleGita/Return-Done",
+    },
+    image: {
+      src: returnDoneLanding,
+      alt: "Return Done landing page: Returns without the runaround. A button to schedule a doorstep pickup sits beside a returns tracker showing each item's status from scheduled to refund.",
+    },
   },
 ];
 
@@ -324,12 +357,57 @@ function Portfolio() {
 
       <section id="projects" className="section more-projects">
         <div className="shell">
-          <div className="section-heading-row light"><h2>Systems with<br/><em>real impact.</em></h2><p>Three production stories where architecture, data, and business outcomes meet.</p></div>
+          <div className="section-heading-row light"><h2>Systems with<br/><em>real impact.</em></h2><p>Production stories where architecture, data, and business outcomes meet - plus the startup I co-founded.</p></div>
           {projects.map((project) => (
             <article className="project-card" key={project.number}>
               <div className="project-number">{project.number}</div>
-              <div className="project-body"><p className="project-domain">{project.domain}</p><h3>{project.title}</h3><p>{project.description}</p><strong>{project.impact}</strong></div>
-              <Architecture flow={project.flow}/>
+              <div className="project-body">
+                <p className="project-domain">{project.domain}</p>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <strong>{project.impact}</strong>
+                {project.tags && (
+                  <div className="mp-tags">
+                    {project.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                )}
+                {project.links && (
+                  <div className="project-links">
+                    <a
+                      className="pill pill-dark"
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Live site <ArrowUpRight size={16} />
+                    </a>
+                    <a
+                      className="pill pill-light"
+                      href={project.links.source}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Source code <ArrowUpRight size={16} />
+                    </a>
+                  </div>
+                )}
+              </div>
+              {project.image ? (
+                <div className="project-media">
+                  <img
+                    src={project.image.src}
+                    alt={project.image.alt}
+                    width={2560}
+                    height={1640}
+                    loading="lazy"
+                  />
+                  <Architecture flow={project.flow} />
+                </div>
+              ) : (
+                <Architecture flow={project.flow} />
+              )}
             </article>
           ))}
           <div className="project-list">
