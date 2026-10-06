@@ -235,7 +235,7 @@ const allProjects = [
 ];
 
 const skills = [
-  ["Languages", "Python · Java · JavaScript · TypeScript · SQL · C# · C++"],
+  ["Languages", "Python · C# · Java · JavaScript · TypeScript · SQL · C++"],
   ["Full Stack & Backend", "React · Angular · Spring Boot · .NET 8 · REST APIs · Microservices"],
   ["Cloud & Systems", "AWS Lambda · S3 · SQS · EventBridge · Terraform · Docker · Distributed Systems"],
   ["Data Engineering", "Databricks · PySpark · Delta Lake · Dremio · ETL/ELT · PostgreSQL · MongoDB"],
@@ -464,7 +464,7 @@ function Portfolio() {
         </div>
         <div className="education-list">
           <article><span>2023</span><div><h3>Illinois Institute of Technology</h3><p>Master of Science in Information Technology and Management · Chicago, IL</p><p className="gpa">GPA: 4.0 / 4.0</p></div><Award/></article>
-          <article><span>2015</span><div><h3>Pune Institute of Computer Technology</h3><p>Bachelor of Engineering in Information Technology · Pune, India</p><p className="gpa">GPA: 3.6 / 4.0</p></div><Award/></article>
+          <article><span>2015</span><div><h3>Pune Institute of Computer Technology</h3><p>Bachelor of Engineering in Information Technology · Pune, India</p></div><Award/></article>
           <div className="certifications">
             <h3>Leadership</h3>
             <p><a href="https://www.instagram.com/isa_illinoistech/" target="_blank" rel="noreferrer">President, Indian Students Association · Illinois Institute of Technology</a> <span>2022</span></p>
