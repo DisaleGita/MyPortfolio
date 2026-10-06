@@ -187,6 +187,7 @@ const allProjects = [
     org: "Illinois Institute of Technology",
     text: "JavaFX and MySQL system with admin and user roles: property listings for rent or sale, quotation bids from users, and admin accept or reject workflows.",
     tags: ["JavaFX", "MySQL"],
+    source: "https://github.com/DisaleGita/RealEstateManagement",
   },
   {
     date: "Aug 2020 - Jul 2021",
@@ -422,6 +423,16 @@ function Portfolio() {
                 {project.org && <p className="mp-org">{project.org}</p>}
                 <p>{project.text}</p>
                 <div className="mp-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+                {project.source && (
+                  <a
+                    className="mp-link"
+                    href={project.source}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Source code <ArrowUpRight size={14} />
+                  </a>
+                )}
               </article>
             ))}
           </div>
