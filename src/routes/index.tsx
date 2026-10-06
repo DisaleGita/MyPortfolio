@@ -9,6 +9,7 @@ import {
   Cloud,
   Code2,
   Database,
+  Github,
   Linkedin,
   Mail,
   MapPin,
@@ -490,7 +491,7 @@ function Portfolio() {
           <SectionLabel>Let&apos;s work together</SectionLabel>
           <h2>Let&apos;s build something<br/><em>meaningful.</em></h2>
           <p>I&apos;m interested in challenging engineering problems involving scalable software, cloud platforms, distributed systems, data engineering, and applied AI.</p>
-          <div className="footer-actions"><a className="pill pill-coral" href="mailto:disale.gita@gmail.com"><Mail size={18}/> Email me</a><a className="pill pill-outline-dark" href="https://linkedin.com/in/gita-disale/" target="_blank" rel="noreferrer"><Linkedin size={18}/> LinkedIn</a><a className="pill pill-outline-dark" href="https://x.com/DisaleGita" target="_blank" rel="noreferrer">X / Twitter</a></div>
+          <div className="footer-actions"><a className="pill pill-coral" href="mailto:disale.gita@gmail.com"><Mail size={18}/> Email me</a><a className="pill pill-outline-dark" href="https://linkedin.com/in/gita-disale/" target="_blank" rel="noreferrer"><Linkedin size={18}/> LinkedIn</a><a className="pill pill-outline-dark" href="https://github.com/DisaleGita" target="_blank" rel="noreferrer"><Github size={18}/> GitHub</a><a className="pill pill-outline-dark" href="https://x.com/DisaleGita" target="_blank" rel="noreferrer">X / Twitter</a></div>
           <div className="footer-meta"><BrandMark/><span><MapPin size={15}/> Chicago, IL</span><span>© 2026 Gita Disale</span></div>
         </div>
       </footer>
