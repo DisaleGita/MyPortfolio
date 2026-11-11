@@ -139,6 +139,15 @@ h1 em, h2 em { color: var(--coral); font-style: italic; font-weight: 500; }
 .architecture-step { display: flex; min-width: 0; flex: 1; align-items: center; }
 .architecture-step > span { display: grid; min-height: 72px; flex: 1; place-items: center; padding: 8px; border: 1px solid var(--border); background: var(--card); text-align: center; font-size: 10px; font-weight: 700; }
 .architecture-step i { display: grid; width: 24px; flex-shrink: 0; place-items: center; color: var(--coral); }
+.workflow { display: grid; grid-template-columns: repeat(3, minmax(0,1fr) 24px) minmax(0,1fr); grid-template-rows: auto 26px auto; }
+.workflow-node { grid-column: var(--col); grid-row: var(--row); display: grid; min-height: 72px; align-content: center; gap: 3px; padding: 8px; border: 1px solid var(--border); background: var(--card); text-align: center; font-size: 10px; }
+.workflow-node b { font-weight: 700; }
+.workflow-node small { color: var(--muted-foreground); font-size: 9px; font-weight: 600; }
+.workflow-node.is-condition { border-color: var(--coral); box-shadow: inset 0 0 0 1px var(--coral); }
+.workflow-node.is-condition small { color: var(--coral); font-size: 11px; font-weight: 800; }
+.workflow-arrow { grid-column: var(--col); grid-row: var(--row); display: grid; place-items: center; color: var(--coral); }
+.workflow-arrow.is-down svg { transform: rotate(90deg); }
+.workflow-arrow.is-left svg { transform: rotate(180deg); }
 .more-projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 55px; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
 .more-projects-grid article { display: flex; flex-direction: column; gap: 10px; padding: 27px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .more-projects-grid .mp-top { display: flex; justify-content: space-between; gap: 12px; color: var(--coral); font-size: 11px; font-weight: 800; }
@@ -242,6 +251,10 @@ h1 em, h2 em { color: var(--coral); font-style: italic; font-weight: 500; }
   .architecture { flex-direction: column; align-items: stretch; }
   .architecture-step { flex-direction: column; }
   .architecture-step i { height: 22px; transform: rotate(90deg); }
+  .workflow { display: flex; }
+  .workflow-node { min-height: 60px; }
+  .workflow-arrow { height: 22px; }
+  .workflow-arrow svg, .workflow-arrow.is-left svg { transform: rotate(90deg); }
   .ai-network { min-height: 260px; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-actions { justify-content: flex-start; }
