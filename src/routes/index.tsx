@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowDownRight,
@@ -149,6 +150,31 @@ const projects = [
   },
   {
     number: "04",
+    domain: "ENTERPRISE APPLICATIONS / WORKFLOW AUTOMATION",
+    title: "Global Market Data Onboarding Automation",
+    description:
+      "Independently architected and developed a global market data onboarding application using Microsoft Power Apps, SharePoint Lists, and Power Automate. Automated request tracking, Azure DevOps ticket creation, and conditional workflows between Licensing and Market Data IT teams.",
+    impact:
+      "End-to-end application independently designed, developed, and delivered",
+    workflow: [
+      { label: "Power Apps", detail: "Submit request" },
+      { label: "SharePoint List", detail: "Store request data" },
+      { label: "Power Automate", detail: "Create Licensing ticket" },
+      { label: "Azure DevOps", detail: "Licensing backlog" },
+      { label: "Licensing work item", detail: "= Done", condition: true },
+      { label: "Power Automate", detail: "Trigger onboarding handoff" },
+      { label: "Azure DevOps", detail: "Market Data IT backlog" },
+      { label: "New Onboarding Request", detail: "Work item created" },
+    ],
+    tags: [
+      "Microsoft Power Apps",
+      "Microsoft SharePoint Lists",
+      "Microsoft Power Automate",
+      "Azure DevOps",
+    ],
+  },
+  {
+    number: "05",
     domain: "STARTUP / RETURNS LOGISTICS",
     title: "Return Done",
     description:
@@ -266,6 +292,68 @@ function Architecture({ flow }: { flow: string[] }) {
           {index < flow.length - 1 && <i><ArrowRight size={14} /></i>}
         </div>
       ))}
+    </div>
+  );
+}
+
+type WorkflowStep = { label: string; detail: string; condition?: boolean };
+
+const gridCell = ({ col, row }: { col: number; row: number }) =>
+  ({ "--col": col, "--row": row }) as React.CSSProperties;
+
+/*
+ * Two-row "snake" variant of Architecture for longer flows: row one reads
+ * left to right, turns down on the right edge, and row two reads right to
+ * left. DOM order stays sequential, so on mobile it collapses into the same
+ * vertical stack as Architecture.
+ */
+function WorkflowArchitecture({ steps }: { steps: WorkflowStep[] }) {
+  const perRow = 4; // matches the .workflow grid columns in styles.css
+  const place = (index: number) => {
+    const row = Math.floor(index / perRow);
+    const offset = index % perRow;
+    const slot = row % 2 === 0 ? offset : perRow - 1 - offset;
+    return { col: slot * 2 + 1, row: row * 2 + 1 };
+  };
+
+  return (
+    <div
+      className="architecture workflow"
+      aria-label={steps
+        .map((step) => `${step.label} ${step.detail}`)
+        .join(" to ")}
+    >
+      {steps.map((step, index) => {
+        const node = place(index);
+        const next = index < steps.length - 1 ? place(index + 1) : null;
+        let direction = "right";
+        if (next && next.row > node.row) direction = "down";
+        else if (next && next.col < node.col) direction = "left";
+        const arrow = next && {
+          col: direction === "down" ? node.col : (node.col + next.col) / 2,
+          row: direction === "down" ? node.row + 1 : node.row,
+        };
+        return (
+          <Fragment key={index}>
+            <span
+              className={`workflow-node${step.condition ? " is-condition" : ""}`}
+              style={gridCell(node)}
+            >
+              <b>{step.label}</b>
+              <small>{step.detail}</small>
+            </span>
+            {arrow && (
+              <i
+                className={`workflow-arrow is-${direction}`}
+                style={gridCell(arrow)}
+                aria-hidden="true"
+              >
+                <ArrowRight size={14} />
+              </i>
+            )}
+          </Fragment>
+        );
+      })}
     </div>
   );
 }
@@ -407,8 +495,10 @@ function Portfolio() {
                   />
                   <Architecture flow={project.flow} />
                 </div>
+              ) : project.workflow ? (
+                <WorkflowArchitecture steps={project.workflow} />
               ) : (
-                <Architecture flow={project.flow} />
+                project.flow && <Architecture flow={project.flow} />
               )}
             </article>
           ))}
